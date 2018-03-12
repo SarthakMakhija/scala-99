@@ -3,10 +3,7 @@ Repository containing the solutions to problems defined in http://aperiodic.net/
 
 In order to run the tests use the following -
 
-`sbt test
-
+``sbt test
 or 
-
 sbt
-> test
-`
+> test``
