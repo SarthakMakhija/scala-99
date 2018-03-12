@@ -19,6 +19,7 @@ object WorkingWithLists {
     }
     nth$(itr = 1, xs)
   }
+}
 
 ```
 and the tests for same -
@@ -33,6 +34,7 @@ class WorkingWithListsTest extends FunSuite {
 
     assert(kth == 3)
   }
+}
 ```
 
 To run the tests -
