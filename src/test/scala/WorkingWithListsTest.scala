@@ -109,4 +109,11 @@ class WorkingWithListsTest extends FunSuite {
 
     assert(dropped == List())
   }
+
+  test("should split list at a given position"){
+    val xs = List('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')
+    val split = WorkingWithLists.split(3, xs)
+
+    assert(split == (List('a', 'b', 'c'), List('d', 'e', 'f', 'g', 'h', 'i', 'j', 'k')))
+  }
 }

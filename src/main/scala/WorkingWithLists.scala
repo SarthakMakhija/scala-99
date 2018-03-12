@@ -39,13 +39,20 @@ object WorkingWithLists {
   }
 
   def drop(n: Int, xs: List[Char]): List[Char] = {
-    def drop$(iter: Int, xs: List[Char], acc: List[Char]): List[Char] = {
-      xs match {
-        case Nil => acc
-        case head :: tail if iter == n => drop$(1, tail, acc)
-        case head :: tail if iter != n => drop$(iter + 1, tail, acc ::: List(head))
-      }
+    def drop$(iter: Int, xs: List[Char], acc: List[Char]): List[Char] = xs match {
+      case Nil => acc
+      case head :: tail if iter == n => drop$(1, tail, acc)
+      case head :: tail if iter != n => drop$(iter + 1, tail, acc ::: List(head))
     }
     drop$(1, xs, List())
+  }
+
+  def split(at: Int, xs: List[Char]): (List[Char], List[Char]) = {
+    def split$(iter: Int, xs: List[Char], acc: List[Char]): (List[Char], List[Char]) = xs match {
+      case Nil => Tuple2(List(), List())
+      case head :: tail if iter == at => (acc ::: List(head), tail)
+      case head :: tail if iter != at => split$(iter + 1, tail, acc ::: List(head))
+    }
+    split$(1, xs, List())
   }
 }
