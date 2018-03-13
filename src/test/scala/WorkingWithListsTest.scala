@@ -116,4 +116,31 @@ class WorkingWithListsTest extends FunSuite {
 
     assert(split == (List('a', 'b', 'c'), List('d', 'e', 'f', 'g', 'h', 'i', 'j', 'k')))
   }
+
+  test("should return a slice between 3 and 7 in the list"){
+    val xs = List('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')
+    val slice = WorkingWithLists.slice(3, 7, xs)
+
+    assert(slice == List('d', 'e', 'f', 'g'))
+  }
+
+  test("should return a slice between 11 and 13 in the list"){
+    val xs = List('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')
+    val slice = WorkingWithLists.slice(11, 13, xs)
+
+    assert(slice == List())
+  }
+
+  test("should remove a character and return the list and the removed character"){
+    val xs = List('a', 'b', 'c', 'd')
+    val updated = WorkingWithLists.insertAt('p', 1, xs)
+
+    assert(updated == List('a', 'p', 'b', 'c', 'd'))
+  }
+
+  test("should return the list from a range(4,9)"){
+    val xs = WorkingWithLists.range(4, 9)
+
+    assert(xs == List(4, 5, 6, 7, 8, 9))
+  }
 }
